@@ -70,6 +70,14 @@ app.get("/users", function (req, res) {
   try {
     const decoded = jwt.verify(token, jwtPassword);
     const username = decoded.username;
+    //return a list of users other than this username
+    return res.json({
+        //print all users except username 
+      users:ALL_USERS.filter(user=>
+        user.username !== username
+    )
+
+    });
   } catch (err) {
     return res.status(403).json({
       msg: "Invalid token",
