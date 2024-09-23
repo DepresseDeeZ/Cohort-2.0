@@ -8,8 +8,8 @@
 </head>
 <body>
     <script src="script1.js"></script>
-    <input type="text" placeholder="First number" id="f1"><br><br>
-    <input type="text" placeholder="Second number" id="f2"><br><br>
+    <input oninput="dePopulateDiv()" type="text" placeholder="First number" id="f1"><br><br>
+    <input oninput="dePopulateDiv()" type="text" placeholder="Second number" id="f2"><br><br>
     <button onclick="populateDiv()">Calcualte Sum</button>
     <div id="finalSum"></div>
 
