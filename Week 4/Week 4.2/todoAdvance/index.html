@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="title" id="title" /><br /><br />
+    <input type="text" placeholder="description" id="description" /><br /><br />
+    <div id="todos"></div>
+    <script>
+      function createChild(title, description, id) {
+        const child = document.createElement("div");
+        const firstGrandChild = document.createElement("div");
+        firstGrandChild.innerHTML = title;
+        const secondGrandChild = document.createElement("div");
+        secondGrandChild.innerHTML = description;
+        const thirdGrandParent = document.createElement("button");
+        thirdGrandParent.innerHTML = "Mark as done";
+        thirdGrandParent.setAttribute("onclick", `markAsDone(${id})`);
+        child.appendChild(firstGrandChild);
+        child.appendChild(secondGrandChild);
+        child.appendChild(thirdGrandParent);
+        child.setAttribute("id", id);
+        return child;
+      }
+      //state will always be an array
+      //every element of state would have a title description and id
+      function updateDomAccToState(state) {
+        const parent = document.getElementById("todos");
+        parent.innerHTML = "";
+        for (let i = 0; i < state.length; i++) {
+          const child = createChild(
+            state[i].title,
+            state[i].description,
+            state[i].id
+          );
+          parent.appendChild(child);
+        }
+      }
+      window.setInterval(async () => {
+        const res = await fetch("http://localhost:8080/todos");
+        const data = await res.json();
+        updateDomAccToState(data.todos);
+      }, 5000);
+    </script>
+  </body>
+</html>
