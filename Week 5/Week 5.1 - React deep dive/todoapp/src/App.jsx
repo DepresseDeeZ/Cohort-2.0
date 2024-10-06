@@ -26,14 +26,6 @@ function App() {
       completed:false
     }])
   }
-  function addTodo1(){
-    setTodos([...todos,{
-      title:"New Todo",
-      description:"New Description",
-      completed:false
-    }])
-  }
-
 
 
   return (
