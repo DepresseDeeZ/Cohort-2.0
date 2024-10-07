@@ -18,3 +18,5 @@ it has the following features
 // initialize a node project
 // put a package.json
 <!-- npm init -y -->
+this is what we have done and what is remaining
+![image](image.png)
