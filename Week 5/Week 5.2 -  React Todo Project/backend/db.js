@@ -13,6 +13,7 @@ const { boolean } = require('zod');
 */
 
 //using mongodb url
+// mongodb+srv://umangraval749:efiShv9O7BjxgALE@cluster0.2wifg.mongodb.net/todos
 
 //connect the db to the mongo db server
 mongoose.connect('mongodb+srv://umangraval749:efiShv9O7BjxgALE@cluster0.2wifg.mongodb.net/todos');
