@@ -38,7 +38,9 @@ function App() {
 }
 function Todos(){
   return (
-    
+    <Bitton>
+      doing this for the internal so please mijnf
+    </Bitton>
   )
 }
 function Todo({title,description}){
